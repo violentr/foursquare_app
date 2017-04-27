@@ -9,7 +9,8 @@ getLocation = ()->
     $("#long").val(response.longitude)
   )
 
-$(document).ready ->
+$(document).on("turbolinks:load", ->
   getLocation()
+)
 
 
