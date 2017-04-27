@@ -10,8 +10,7 @@ class WelcomeController < ApplicationController
     client = Foursquare2::Client.new(options)
     output = client.search_venues(
       ll: "#{params[:lat]}, #{params[:long]}", query: params[:cat])
-
-    render json: output
+    @venues = output.venues
   end
 
 end
