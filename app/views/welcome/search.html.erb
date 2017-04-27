@@ -1,13 +1,19 @@
 <h2> Venues List </h2>
-<ul>
-  <% @venues.each_with_index do |venue, index|%>
-    <% category = venue.categories.first %>
-    <li>
-      <% if category.present? %>
-        <% link = "https://foursquare.com/v/costa-coffee/#{venue.id}" %>
-      <% end %>
-      <div style="text-transform:uppercase;"><strong><%= index + 1 %>.&nbsp;<%= link_to venue.name || "no-name", link %></strong></div>
-      <div style="margin-bottom:10px;"><%= venue.location.address || "no-address" %> </div>
-    </li>
-  <% end %>
-</ul>
+<% if @venues.present? %>
+  <ul>
+    <% @venues.each_with_index do |venue, index|%>
+      <% category = venue.categories.first %>
+      <li>
+        <% if category.present? %>
+          <% link = "https://foursquare.com/v/costa-coffee/#{venue.id}" %>
+        <% end %>
+        <div style="text-transform:uppercase;"><strong><%= index + 1 %>.&nbsp;<%= link_to venue.name || "no-name", link %></strong></div>
+        <div style="margin-bottom:10px;"><%= venue.location.address || "no-address" %> </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3> <%= @venues.size %> results found! try again </h3>
+        <%= link_to "Home", root_path %>
+<% end %>
+
