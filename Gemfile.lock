@@ -56,7 +56,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.9.18)
+    ffi (1.14.2)
     foursquare2 (2.0.2)
       faraday (~> 0.8)
       faraday_middleware (>= 0.8)
